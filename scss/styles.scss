@@ -10,9 +10,9 @@ header{
 
 
 .flex{
+    width: auto;
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.ancho-carrito{
-    width: 40px;
-}

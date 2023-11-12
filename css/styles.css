@@ -9,11 +9,10 @@ header {
 }
 
 .flex {
+  width: auto;
   display: flex;
-}
-
-.ancho-carrito {
-  width: 40px;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 /*# sourceMappingURL=styles.css.map */

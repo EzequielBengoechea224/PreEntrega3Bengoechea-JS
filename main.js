@@ -26,10 +26,10 @@ const productos = JSON.parse(localStorage.getItem("ProductosVec")) || [];
 
 const cargarArrayProds = () =>{
     const P1 = new Productos(1,"Motor Rossi",500);
-    const P2 = new Productos(1,"Motor FAAC",600);
-    const P3 = new Productos(1,"Remera Rossi",10);
-    const P4 = new Productos(1,"Remera FAAC",10);
-    const P5 = new Productos(1,"Controles",20);
+    const P2 = new Productos(2,"Motor FAAC",600);
+    const P3 = new Productos(3,"Remera Rossi",10);
+    const P4 = new Productos(4,"Remera FAAC",10);
+    const P5 = new Productos(5,"Controles",20);
     productos.push(P1);
     productos.push(P2);
     productos.push(P3);
@@ -108,7 +108,7 @@ if(productos.length != 0){
         <p>nombre: ${item.nombre_producto}</p>
         <b>$${item.precio_producto}</b>
         <p></p>
-        <input type="button" class="ancho-carrito" id="button${i}">Click para cargar a carrito
+        <input type="button" value="Click para agregar a carrito" id="button${i}">
         `;
         sectionProducts.appendChild(divProds2)
 
