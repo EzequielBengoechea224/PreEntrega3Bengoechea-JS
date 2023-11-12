@@ -12,7 +12,7 @@ class Productos {
 //creacion de variables
 let usuario;
 let usuarioStorage = localStorage.getItem("Usuario");
-
+let productosStorage
 
 //Creacion de vectores
 const productos = JSON.parse(localStorage.getItem("ProductosVec")) || [];
@@ -45,6 +45,10 @@ const guardarStorage = (clave, valor) =>{
 
 //Llamada a la funcion para cargar el vec de productos
 cargarArrayProds();
+
+if(!productosStorage){
+    guardarStorage("Productos",JSON.stringify(productos))
+}
 
 if(!productos){
     guardarStorage("ProductosVec", JSON.stringify(productos));
@@ -84,6 +88,46 @@ if(usuarioStorage){
 }
 
 //Seccion de Productos. 
+const productosHTML = document.getElementById("productos")
 if(productos.length != 0){
-    let productosHTML = document
+    let divProds = document.createElement("div");
+    divProds.innerHTML = `
+    <h3>Bienvenido a la seccion de productos</h3>
+    <sub>Estos son sus productos</sub>
+    `; 
+    productosHTML.appendChild(divProds);
+    let sectionProducts = document.createElement("section");
+    productosHTML.appendChild(sectionProducts)
+    sectionProducts.className = "flex";
+    let i = 0;
+    productos.forEach((item) =>{
+        i += 1;
+        let divProds2 = document.createElement("div");
+        divProds2.innerHTML = `
+        <h2>id: ${item.id_producto}</h2>
+        <p>nombre: ${item.nombre_producto}</p>
+        <b>$${item.precio_producto}</b>
+        <p></p>
+        <input type="button" class="ancho-carrito" id="button${i}">Click para cargar a carrito
+        `;
+        sectionProducts.appendChild(divProds2)
+
+    });
+
+    //seccion de addEventListener Para ver cual es el button que apretan
+    button1.addEventListener("click", () =>{
+        const vecProdStorage = localStorage.getItem("Productos");
+        console.log(JSON.parse(vecProdStorage));
+    });
+
+}else{
+    let divProds = document.createElement("div");
+    divProds.innerHTML = `
+    <h3>Todavia no hay ningun producto cargado</h3>
+    `;
+    productosHTML.appendChild(divProds);
 }
+
+
+
+//Seccion de carrito
