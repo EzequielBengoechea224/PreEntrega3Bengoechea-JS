@@ -1,0 +1,154 @@
+button1.addEventListener("click", () =>{
+    productSelected = productos[0];
+    /* console.log(productSelected); */
+    carrito.push(productSelected);
+    /* console.log(carrito); */
+    let divCarrito = document.createElement("div");
+    divCarrito.className = "width-prods";
+    divCarrito.innerHTML = `
+    <h4>Producto ID: ${productSelected.id_producto}</h4>
+    <p>Nombre del producto: ${productSelected.nombre_producto}</p>
+    <b>Precio: $${productSelected.precio_producto}</b>
+    `;
+    carritoHTML.appendChild(divCarrito);
+    
+});
+
+button2.addEventListener("click", () =>{
+    productSelected = productos[1];
+    /* console.log(productSelected); */
+    carrito.push(productSelected);
+    /* console.log(carrito); */
+    let divCarrito = document.createElement("div");
+    divCarrito.className = "width-prods";
+    divCarrito.innerHTML = `
+    <h4>Producto ID: ${productSelected.id_producto}</h4>
+    <p>Nombre del producto: ${productSelected.nombre_producto}</p>
+    <b>Precio: $${productSelected.precio_producto}</b>
+    `;
+    carritoHTML.appendChild(divCarrito);
+    
+});
+
+button3.addEventListener("click", () =>{
+    productSelected = productos[2];
+    /* console.log(productSelected); */
+    carrito.push(productSelected);
+    /* console.log(carrito); */
+    let divCarrito = document.createElement("div");
+    divCarrito.className = "width-prods";
+    divCarrito.innerHTML = `
+    <h4>Producto ID: ${productSelected.id_producto}</h4>
+    <p>Nombre del producto: ${productSelected.nombre_producto}</p>
+    <b>Precio: $${productSelected.precio_producto}</b>
+    `;
+    carritoHTML.appendChild(divCarrito);
+    
+});
+
+button4.addEventListener("click", () =>{
+    productSelected = productos[3];
+    /* console.log(productSelected); */
+    carrito.push(productSelected);
+    /* console.log(carrito); */
+    let divCarrito = document.createElement("div");
+    divCarrito.className = "width-prods";
+    divCarrito.innerHTML = `
+    <h4>Producto ID: ${productSelected.id_producto}</h4>
+    <p>Nombre del producto: ${productSelected.nombre_producto}</p>
+    <b>Precio: $${productSelected.precio_producto}</b>
+    `;
+    carritoHTML.appendChild(divCarrito);
+    
+});
+
+button5.addEventListener("click", () =>{
+    productSelected = productos[4]
+    /* console.log(productSelected); */
+    carrito.push(productSelected);
+    /* console.log(carrito); */
+    let divCarrito = document.createElement("div");
+    divCarrito.className = "width-prods";
+    divCarrito.innerHTML = `
+    <h4>Producto ID: ${productSelected.id_producto}</h4>
+    <p>Nombre del producto: ${productSelected.nombre_producto}</p>
+    <b>Precio: $${productSelected.precio_producto}</b>
+    `;
+    carritoHTML.appendChild(divCarrito);
+    
+});
+
+button6.addEventListener("click", () =>{
+    productSelected = productos[5]
+    /* console.log(productSelected); */
+    carrito.push(productSelected);
+    console.log(carrito.length)
+    /* console.log(carrito); */
+    let divCarrito = document.createElement("div");
+    divCarrito.className = "width-prods";
+    divCarrito.innerHTML = `
+    <h4>Producto ID: ${productSelected.id_producto}</h4>
+    <p>Nombre del producto: ${productSelected.nombre_producto}</p>
+    <b>Precio: $${productSelected.precio_producto}</b>
+    `;
+    carritoHTML.appendChild(divCarrito)
+    
+});
+
+let btnElimCar = document.getElementById("btnElimCar");
+
+btnElimCar.addEventListener("click", () =>{
+    console.log("hola")
+    carritoHTML.remove();
+});
+
+
+agregar abajo de add event listeners
+
+
+
+
+
+
+
+
+
+
+
+button1.addEventListener("click", () => agregarCarrito(productos[0]));
+
+button2.addEventListener("click", () => agregarCarrito(productos[1]));
+
+button3.addEventListener("click", () => agregarCarrito(productos[2]));
+
+button4.addEventListener("click", () => agregarCarrito(productos[3]));
+
+button5.addEventListener("click", () => agregarCarrito(productos[4]));
+
+button6.addEventListener("click", () => agregarCarrito(productos[5]));
+
+
+const btnCarrito = document.getElementById("btnMostrarCarrito");
+const carritoHTML = document.getElementById("contCarrito");
+btnCarrito.addEventListener("click", () =>{
+    
+    carritoHTML.className = "flex";
+    console.log("hola eze");
+    console.log(carrito);
+    carrito.forEach((item) =>{
+        let divCarrito = document.createElement("div");
+        divCarrito.innerHTML = `
+        <h4>Producto ID: ${item.id_producto}</h4>
+        <p>Nombre del producto: ${item.nombre_producto}</p>
+        <b>Precio: $${item.precio_producto}</b>
+        `;
+        carritoHTML.appendChild(divCarrito);
+    });
+});
+
+
+const btnElimCarro = document.getElementById("btnElimCarro");
+
+btnElimCarro.addEventListener("click", () =>{
+    carritoHTML[0].remove();
+})

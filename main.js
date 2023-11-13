@@ -13,10 +13,13 @@ class Productos {
 let usuario;
 let usuarioStorage = localStorage.getItem("Usuario");
 let productosStorage
+let bandCar = false;
+let valTotCar = 0;
+
 
 //Creacion de vectores
 const productos = JSON.parse(localStorage.getItem("ProductosVec")) || [];
-
+const carrito = JSON.parse(localStorage.getItem("Carrito")) || [];
 
 
 
@@ -29,18 +32,25 @@ const cargarArrayProds = () =>{
     const P2 = new Productos(2,"Motor FAAC",600);
     const P3 = new Productos(3,"Remera Rossi",10);
     const P4 = new Productos(4,"Remera FAAC",10);
-    const P5 = new Productos(5,"Controles",20);
+    const P5 = new Productos(5,"Controles Universales",20);
+    const P6 = new Productos(6,"Remera IEMTEC",40);
     productos.push(P1);
     productos.push(P2);
     productos.push(P3);
     productos.push(P4);
     productos.push(P5);
+    productos.push(P6);
 }
 
 const guardarStorage = (clave, valor) =>{
     localStorage.setItem(clave,valor);
 }
 
+/* const agregarCarrito = (obj) =>{
+    console.log("Hola master")
+    carrito.push(obj);
+    console.log(carrito);
+} */
 
 
 //Llamada a la funcion para cargar el vec de productos
@@ -89,6 +99,7 @@ if(usuarioStorage){
 
 //Seccion de Productos. 
 const productosHTML = document.getElementById("productos")
+/* productosHTML.className = "max-width"; */
 if(productos.length != 0){
     let divProds = document.createElement("div");
     divProds.innerHTML = `
@@ -103,6 +114,7 @@ if(productos.length != 0){
     productos.forEach((item) =>{
         i += 1;
         let divProds2 = document.createElement("div");
+        divProds2.className = "width-prods";
         divProds2.innerHTML = `
         <h2>id: ${item.id_producto}</h2>
         <p>nombre: ${item.nombre_producto}</p>
@@ -114,11 +126,7 @@ if(productos.length != 0){
 
     });
 
-    //seccion de addEventListener Para ver cual es el button que apretan
-    button1.addEventListener("click", () =>{
-        const vecProdStorage = localStorage.getItem("Productos");
-        console.log(JSON.parse(vecProdStorage));
-    });
+    
 
 }else{
     let divProds = document.createElement("div");
@@ -129,6 +137,114 @@ if(productos.length != 0){
 }
 
 
-
 //Seccion de carrito
+const carritoHTML = document.getElementById("contCarrito");
+carritoHTML.className = "flex";
 
+
+//Eventos
+//seccion de addEventListener Para ver cual es el button que apretan
+
+button1.addEventListener("click", () =>{
+    productSelected = productos[0];
+    /* console.log(productSelected); */
+    carrito.push(productSelected);
+    /* console.log(carrito); */
+    let divCarrito = document.createElement("div");
+    divCarrito.className = "width-prods";
+    divCarrito.innerHTML = `
+    <h4>Producto ID: ${productSelected.id_producto}</h4>
+    <p>Nombre del producto: ${productSelected.nombre_producto}</p>
+    <b>Precio: $${productSelected.precio_producto}</b>
+    `;
+    carritoHTML.appendChild(divCarrito);
+    valTotCar += productSelected.precio_producto
+});
+
+button2.addEventListener("click", () =>{
+    productSelected = productos[1];
+    /* console.log(productSelected); */
+    carrito.push(productSelected);
+    /* console.log(carrito); */
+    let divCarrito = document.createElement("div");
+    divCarrito.className = "width-prods";
+    divCarrito.innerHTML = `
+    <h4>Producto ID: ${productSelected.id_producto}</h4>
+    <p>Nombre del producto: ${productSelected.nombre_producto}</p>
+    <b>Precio: $${productSelected.precio_producto}</b>
+    `;
+    carritoHTML.appendChild(divCarrito);
+    valTotCar += productSelected.precio_producto
+});
+
+button3.addEventListener("click", () =>{
+    productSelected = productos[2];
+    /* console.log(productSelected); */
+    carrito.push(productSelected);
+    /* console.log(carrito); */
+    let divCarrito = document.createElement("div");
+    divCarrito.className = "width-prods";
+    divCarrito.innerHTML = `
+    <h4>Producto ID: ${productSelected.id_producto}</h4>
+    <p>Nombre del producto: ${productSelected.nombre_producto}</p>
+    <b>Precio: $${productSelected.precio_producto}</b>
+    `;
+    carritoHTML.appendChild(divCarrito);
+    valTotCar += productSelected.precio_producto
+});
+
+button4.addEventListener("click", () =>{
+    productSelected = productos[3];
+    /* console.log(productSelected); */
+    carrito.push(productSelected);
+    /* console.log(carrito); */
+    let divCarrito = document.createElement("div");
+    divCarrito.className = "width-prods";
+    divCarrito.innerHTML = `
+    <h4>Producto ID: ${productSelected.id_producto}</h4>
+    <p>Nombre del producto: ${productSelected.nombre_producto}</p>
+    <b>Precio: $${productSelected.precio_producto}</b>
+    `;
+    carritoHTML.appendChild(divCarrito);
+    valTotCar += productSelected.precio_producto
+});
+
+button5.addEventListener("click", () =>{
+    productSelected = productos[4]
+    /* console.log(productSelected); */
+    carrito.push(productSelected);
+    /* console.log(carrito); */
+    let divCarrito = document.createElement("div");
+    divCarrito.className = "width-prods";
+    divCarrito.innerHTML = `
+    <h4>Producto ID: ${productSelected.id_producto}</h4>
+    <p>Nombre del producto: ${productSelected.nombre_producto}</p>
+    <b>Precio: $${productSelected.precio_producto}</b>
+    `;
+    carritoHTML.appendChild(divCarrito);
+    valTotCar += productSelected.precio_producto
+});
+
+button6.addEventListener("click", () =>{
+    productSelected = productos[5]
+    /* console.log(productSelected); */
+    carrito.push(productSelected);
+    console.log(carrito.length)
+    /* console.log(carrito); */
+    let divCarrito = document.createElement("div");
+    divCarrito.className = "width-prods";
+    divCarrito.innerHTML = `
+    <h4>Producto ID: ${productSelected.id_producto}</h4>
+    <p>Nombre del producto: ${productSelected.nombre_producto}</p>
+    <b>Precio: $${productSelected.precio_producto}</b>
+    `;
+    carritoHTML.appendChild(divCarrito)
+    valTotCar += productSelected.precio_producto
+});
+
+let btnElimCar = document.getElementById("btnElimCar");
+
+btnElimCar.addEventListener("click", () =>{
+    console.log("hola");
+    carritoHTML.remove()
+});

@@ -6,6 +6,7 @@
 header{
     height: 100px;
     background-color: black;
+    width: auto;
 }
 
 
@@ -16,3 +17,11 @@ header{
     flex-wrap: wrap;
 }
 
+.width-prods{
+    width: 30vw;
+    overflow: hidden;
+}
+
+.max-width{
+    width: 100vw;
+}

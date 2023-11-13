@@ -6,6 +6,7 @@
 header {
   height: 100px;
   background-color: black;
+  width: auto;
 }
 
 .flex {
@@ -13,6 +14,15 @@ header {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.width-prods {
+  width: 30vw;
+  overflow: hidden;
+}
+
+.max-width {
+  width: 100vw;
 }
 
 /*# sourceMappingURL=styles.css.map */
